@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t oxideorcoal/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run oxideorcoal/docker-react npm run test -- --coverage
